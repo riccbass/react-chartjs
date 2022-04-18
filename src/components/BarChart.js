@@ -1,6 +1,9 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
 
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
+
 //vejo os docs de defaults no chart js
 
 // parei em 14:27
@@ -30,27 +33,22 @@ const BarChart = () => {
         }}
         height={400}
         options={{
-          tooltips: {
-            // Overrides the global setting
-            mode: "label",
+          interaction: {
+            mode: "index",
           },
           responsive: true,
           maintainAspectRatio: false,
           scales: {
-            yAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  beginAtZero: true,
-                  fontSize: 10,
-                },
+            y: {
+              stacked: true,
+              ticks: {
+                beginAtZero: true,
+                fontSize: 10,
               },
-            ],
-            xAxes: [
-              {
-                stacked: true,
-              },
-            ],
+            },
+            x: {
+              stacked: true,
+            },
           },
           legend: {
             labels: {

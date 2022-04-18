@@ -1,5 +1,8 @@
 import React from "react";
-import { Line, defaults } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 
 //vejo os docs de defaults no chart js
 
@@ -37,14 +40,12 @@ const BarChart = () => {
           responsive: true,
           maintainAspectRatio: false,
           scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                  fontSize: 10,
-                },
+            y: {
+              ticks: {
+                beginAtZero: true,
+                fontSize: 10,
               },
-            ],
+            },
           },
           legend: {
             labels: {
